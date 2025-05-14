@@ -9,7 +9,7 @@ function speak(text) {
 
 function addMessage(text, from = 'sistema') {
   const p = document.createElement('p');
-  p.textContent = (from === 'sistema' ? '🟡 ' : '🟢 ') + text;
+  p.textContent = (from === 'sistema' ? '🟡 ' : '✅ ') + text;
   chat.appendChild(p);
   chat.scrollTop = chat.scrollHeight;
 }
