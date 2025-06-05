@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   background-color: #1a1a1a;
   color: #fff;
   display: flex;
@@ -16,43 +18,88 @@ body {
   padding: 30px;
   border-radius: 15px;
   text-align: center;
-  box-shadow: 0 0 10px #000;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
 }
 
 h1 {
   font-size: 1.8rem;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   color: #ffd700;
 }
 
-.options {
-  margin-top: 20px;
+h2 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.menu {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 button {
-  font-size: 1.2rem;
-  padding: 15px;
+  font-size: 1.1rem;
+  padding: 12px;
   border: none;
   border-radius: 10px;
   background-color: #ffd700;
   color: #000;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.3s, transform 0.2s;
 }
 
 button:hover {
   background-color: #e0c200;
+  transform: scale(1.05);
+}
+
+.finalizar-btn {
+  margin-top: 20px;
+  background: #ff4d4d;
+  color: #fff;
+}
+
+.start-btn {
+  margin-top: 20px;
+  background: #4caf50;
+  color: #fff;
 }
 
 #chat {
   text-align: left;
   margin-bottom: 20px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   line-height: 1.5;
+  max-height: 200px;
+  overflow-y: auto;
 }
+
 #chat p {
   margin: 0;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+
+.usuario {
+  color: #0f0;
+}
+
+.sistema {
+  color: #ffd700;
+}
+
+.resumo {
+  margin: 10px 0;
+  font-weight: bold;
+  background: #333;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
 }
