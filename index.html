@@ -9,13 +9,17 @@
 <body>
   <main class="container">
     <h1>Olá, Berta! Que bom te ver ❤️</h1>
+    
+    <h2>Cardápio do Dia</h2>
+    <div id="menu" class="menu"></div>
+
+    <div id="resumo" aria-live="polite" class="resumo"></div>
+    
     <div id="chat" aria-live="polite"></div>
 
-    <div class="options">
-      <button onclick="handleOption('2 pães franceses')">2 Pães Franceses</button>
-      <button onclick="handleOption('1 bolo de cenoura')">1 Bolo de Cenoura</button>
-      <button onclick="handleOption('Finalizar pedido')">Finalizar Pedido</button>
-    </div>
+    <button onclick="handleOption('Finalizar pedido')" class="finalizar-btn">Finalizar Pedido</button>
+
+    <button id="start" class="start-btn">Começar</button>
   </main>
 
   <script src="script.js"></script>
