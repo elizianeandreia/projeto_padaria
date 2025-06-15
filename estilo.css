@@ -4,20 +4,16 @@ body {
   font-family: 'Poppins', sans-serif;
   background-color: #1a1a1a;
   color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
   margin: 0;
+  padding: 20px;
 }
 
 .container {
-  width: 90%;
   max-width: 960px;
+  margin: 0 auto;
   background: #2c2c2c;
-  padding: 30px;
+  padding: 30px 20px;
   border-radius: 15px;
-  text-align: center;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
 }
 
@@ -40,9 +36,15 @@ h2 {
   margin-bottom: 20px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 600px) {
   .menu {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .menu {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
@@ -114,14 +116,14 @@ button:hover {
   background: #3a3a3a;
   padding: 20px;
   border-radius: 12px;
-  min-height: 140px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-height: 160px;
 }
 
 .item-card h3 {
-  margin: 0 0 10px 0;
+  margin-bottom: 10px;
   font-size: 1.1rem;
   color: #ffd700;
 }
@@ -130,6 +132,7 @@ button:hover {
   display: flex;
   gap: 10px;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .item-controls input[type="number"] {
@@ -139,6 +142,8 @@ button:hover {
   border-radius: 8px;
   border: 1px solid #ccc;
   text-align: center;
+  background: #fff;
+  color: #000;
 }
 
 .item-controls button {
