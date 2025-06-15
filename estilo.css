@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #1a1a1a;
@@ -130,14 +134,16 @@ button:hover {
 
 .item-controls {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   align-items: center;
-  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .item-controls input[type="number"] {
-  width: 60px;
-  padding: 8px;
+  flex: 1 1 60px;
+  min-width: 60px;
+  padding: 10px;
   font-size: 1rem;
   border-radius: 8px;
   border: 1px solid #ccc;
@@ -147,15 +153,16 @@ button:hover {
 }
 
 .item-controls button {
-  flex: 1;
+  flex: 1 1 auto;
   padding: 10px;
   font-size: 1rem;
   border-radius: 8px;
-  background-color: #b1563f;
+  background-color: #4caf50;
   color: white;
   border: none;
   cursor: pointer;
   transition: background 0.3s;
+  min-width: 100px;
 }
 
 .item-controls button:hover {
