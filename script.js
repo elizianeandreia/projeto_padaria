@@ -15,12 +15,11 @@ const menu = [
 ];
 
 
-
 menu.forEach((item, index) => {
   const card = document.createElement('div');
   card.classList.add('item-card');
 
-  const title = document.createElement('h3');
+    const title = document.createElement('h3');
   title.textContent = `${item.nome} - R$ ${item.preco.toFixed(2)}`;
 
   const controls = document.createElement('div');
@@ -29,10 +28,12 @@ menu.forEach((item, index) => {
   const label = document.createElement('span');
  label.textContent = `${item.nome} - R$ ${item.preco.toFixed(2)}`;
 
+
   const input = document.createElement('input');
   input.type = 'number';
   input.min = '1';
   input.value = '1';
+
 
   const btn = document.createElement('button');
   btn.textContent = 'Adicionar';
@@ -40,14 +41,13 @@ menu.forEach((item, index) => {
     const qtd = parseInt(input.value);
     if (qtd > 0) handleOption(item, qtd);
   };
-  
+
 controls.appendChild(input);
   controls.appendChild(btn);
   card.appendChild(title);
   card.appendChild(controls);
   menuContainer.appendChild(card);
 });
-
 function speak(text) {
   const voices = speechSynthesis.getVoices();
   const msg = new SpeechSynthesisUtterance(text);
@@ -75,6 +75,7 @@ function updateCart() {
     resumo.textContent = 'Nenhum item ainda.';
     return;
   }
+
   const resumoItens = cart.map(c => `${c.quantidade}x ${c.item.nome}`).join(', ');
   const total = cart.reduce((sum, c) => sum + c.item.preco * c.quantidade, 0).toFixed(2);
   resumo.textContent = `Seu pedido: ${resumoItens} | Total: R$ ${total}`;
@@ -90,7 +91,7 @@ function handleOption(item, quantidade = 1) {
       speak(msg);
       return;
     }
- const resumoPedido = cart.map(c => `${c.quantidade}x ${c.item.nome}`).join(', ');
+    const resumoPedido = cart.map(c => `${c.quantidade}x ${c.item.nome}`).join(', ');
     const total = cart.reduce((sum, c) => sum + c.item.preco * c.quantidade, 0).toFixed(2);
     const msg = `Pedido enviado: ${resumoPedido}. Total: R$ ${total}. Obrigado, Berta! ❤️`;
     addMessage(msg);
@@ -99,13 +100,12 @@ function handleOption(item, quantidade = 1) {
     updateCart();
     return;
   }
-    
-    cart.push(option);
-    const msg = `Você escolheu ${option}. Deseja mais alguma coisa?`;
-    addMessage(msg);
-    speak(msg);
-    updateCart();
-  }
+
+  cart.push({ item, quantidade });
+  const msg = `Você escolheu ${quantidade}x ${item.nome}. Deseja mais alguma coisa?`;
+  addMessage(msg);
+  speak(msg);
+  updateCart();
 }
 
 document.getElementById('start').addEventListener('click', () => {
