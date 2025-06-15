@@ -5,21 +5,47 @@ const cart = [];
 
 
 const menu = [
-  '2 Pães Franceses',
-  '1 Bolo de Cenoura',
-  '3 Croissants',
-  '2 Sonhos com creme',
-  '4 Pães de Queijo',
-  '1 Torta de Frango',
-  '1 Café com Leite'
+  { nome: ' Pães Franceses', preco: 2.00 },
+  { nome: ' Bolo de Cenoura', preco: 7.50 },
+  { nome: 'Croissants', preco: 6.00 },
+  { nome: ' Sonhos com creme', preco: 5.00 },
+  { nome: 'Pães de Queijo', preco: 4.00 },
+  { nome: 'Torta de Frango', preco: 8.50 },
+  { nome: 'Café com Leite', preco: 3.00 }
 ];
 
 
-menu.forEach(item => {
+
+menu.forEach((item, index) => {
+  const card = document.createElement('div');
+  card.classList.add('item-card');
+
+  const title = document.createElement('h3');
+  title.textContent = `${item.nome} - R$ ${item.preco.toFixed(2)}`;
+
+  const controls = document.createElement('div');
+  controls.classList.add('item-controls');
+
+  const label = document.createElement('span');
+ label.textContent = `${item.nome} - R$ ${item.preco.toFixed(2)}`;
+
+  const input = document.createElement('input');
+  input.type = 'number';
+  input.min = '1';
+  input.value = '1';
+
   const btn = document.createElement('button');
-  btn.textContent = item;
-  btn.onclick = () => handleOption(item);
-  menuContainer.appendChild(btn);
+  btn.textContent = 'Adicionar';
+  btn.onclick = () => {
+    const qtd = parseInt(input.value);
+    if (qtd > 0) handleOption(item, qtd);
+  };
+  
+controls.appendChild(input);
+  controls.appendChild(btn);
+  card.appendChild(title);
+  card.appendChild(controls);
+  menuContainer.appendChild(card);
 });
 
 function speak(text) {
@@ -45,25 +71,35 @@ function addMessage(text, from = 'sistema') {
 }
 
 function updateCart() {
-  resumo.textContent = cart.length > 0 ? 'Seu pedido: ' + cart.join(', ') : 'Nenhum item ainda.';
+  if (cart.length === 0) {
+    resumo.textContent = 'Nenhum item ainda.';
+    return;
+  }
+  const resumoItens = cart.map(c => `${c.quantidade}x ${c.item.nome}`).join(', ');
+  const total = cart.reduce((sum, c) => sum + c.item.preco * c.quantidade, 0).toFixed(2);
+  resumo.textContent = `Seu pedido: ${resumoItens} | Total: R$ ${total}`;
 }
 
-function handleOption(option) {
-  addMessage(option, 'usuario');
+function handleOption(item, quantidade = 1) {
+  addMessage(`${quantidade}x ${item.nome}`, 'usuario');
 
-  if (option === 'Finalizar pedido') {
+  if (item === 'Finalizar pedido') {
     if (cart.length === 0) {
       const msg = 'Você ainda não escolheu nada!';
       addMessage(msg);
       speak(msg);
       return;
     }
-    const msg = `Pedido enviado: ${cart.join(', ')}. Obrigado, Berta! ❤️`;
+ const resumoPedido = cart.map(c => `${c.quantidade}x ${c.item.nome}`).join(', ');
+    const total = cart.reduce((sum, c) => sum + c.item.preco * c.quantidade, 0).toFixed(2);
+    const msg = `Pedido enviado: ${resumoPedido}. Total: R$ ${total}. Obrigado, Berta! ❤️`;
     addMessage(msg);
     speak(msg);
     cart.length = 0;
     updateCart();
-  } else {
+    return;
+  }
+    
     cart.push(option);
     const msg = `Você escolheu ${option}. Deseja mais alguma coisa?`;
     addMessage(msg);
