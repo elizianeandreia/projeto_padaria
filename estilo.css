@@ -13,7 +13,7 @@ body {
 
 .container {
   width: 90%;
-  max-width: 480px;
+  max-width: 960px;
   background: #2c2c2c;
   padding: 30px;
   border-radius: 15px;
@@ -34,10 +34,16 @@ h2 {
 }
 
 .menu {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
   margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .menu {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 button {
@@ -102,4 +108,51 @@ button:hover {
 
 @keyframes fadeIn {
   to { opacity: 1; }
+}
+
+.item-card {
+  background: #3a3a3a;
+  padding: 20px;
+  border-radius: 12px;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.item-card h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.1rem;
+  color: #ffd700;
+}
+
+.item-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.item-controls input[type="number"] {
+  width: 60px;
+  padding: 8px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.item-controls button {
+  flex: 1;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  background-color: #b1563f;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.item-controls button:hover {
+  background-color: #d3683e;
 }
