@@ -18,7 +18,7 @@ const menu = [
     nome: "Pão Francês",
     preco: 2.00,
     descricao: "Crocante por fora e macio por dentro.",
-    imagem: "paofrances.jpg"
+    imagem: "img/paofrances.jpg"
   },
   {
     nome: "Bolo de Cenoura",
