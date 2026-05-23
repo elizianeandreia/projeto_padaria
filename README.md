@@ -9,3 +9,12 @@ de portfólio.
 
 Todos os direitos reservados. Não é permitida a cópia, modificação,
 redistribuição ou uso comercial sem autorização prévia.
+
+--
+## License
+
+This project is made available solely for portfolio viewing, testing, and
+demonstration purposes.
+
+All rights reserved. Copying, modifying, redistributing, or using this project
+for commercial purposes is not permitted without prior written authorization.
