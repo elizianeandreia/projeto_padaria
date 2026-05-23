@@ -1,3 +1,13 @@
-# projeto_padaria 
+Esse é um projeto muito valioso! Para criar um sistema de pedidos online acessível. O foco deve estar em acessibilidade, simplicidade, interação por voz e experiência emocional amigável.
 
-Esse é um projeto muito valioso! Para criar um sistema de pedidos online acessível e acolhedor para alguém como a Berta (pessoa idosa), o foco deve estar em acessibilidade, simplicidade, interação por voz e experiência emocional amigável.
+Licença
+Este projeto é disponibilizado apenas para visualização, teste e demonstração de portfólio.
+
+Todos os direitos reservados. Não é permitida a cópia, modificação, redistribuição ou uso comercial sem autorização prévia.
+
+--
+
+License
+This project is made available solely for portfolio viewing, testing, and demonstration purposes.
+
+All rights reserved. Copying, modifying, redistributing, or using this project for commercial purposes is not permitted without prior written authorization.
